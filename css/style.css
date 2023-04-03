@@ -1,0 +1,427 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+
+}
+
+/* HEADER */
+header {
+    border-bottom: 1px solid #ffffff80;
+    padding: 25px 0;
+    position: absolute;
+    width: 100%;
+}
+
+.header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 75%;
+    margin: 0 auto;
+}
+
+.header__content .logo {
+    text-decoration: none;
+}
+
+.header__content .logo span {
+    font-size: 2rem;
+}
+.header__content .logo i,
+.header__content .logo span{
+    color: white;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu li {
+    display: inline;
+    padding: 0 1.5rem;
+}
+
+.menu li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 1s;
+    color: white;
+}
+
+.menu li a.active {
+    color: #e62b4a;
+}
+
+.menu li a:hover {
+    color: #e62b4a;
+}
+
+/* CAROUSEL */
+#carousel {
+    background-image: url(../img/home_slider.jpg);
+    height: 700px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel__content {
+    text-align: center;
+    color: white;
+}
+
+.carousel__content p {
+    font-size: 1.5rem;
+}
+
+.carousel__content h1 {
+    font-size: 4.5rem;
+    line-height: 90px;
+}
+
+.carousel__content button {
+    background-color: #e62b4a;
+    color: white;
+    padding: 0.9rem 1.8rem;
+    border: 1px solid #e62b4a;
+    cursor: pointer;
+    transition: all 1s;
+    margin-top: 20px;
+}
+
+.carousel__content button:hover {
+    background-color: #af2239;
+    ;
+}
+
+.carousel__content .arrow__down {
+    margin-top: 2rem;
+}
+/* *** cách viết để mũi tên chuyển động */
+.arrow__down{
+    animation-name: arrowdown ;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes arrowdown{
+    0%{
+transform: translateY(0);
+opacity: 1;
+    }
+    100%{
+opacity: 0;
+transform: translateY(40px);
+
+    }
+}
+
+
+/* SERVICES */
+#services{
+    background-color: black;
+    color: white;
+    padding: 7rem 0;
+}
+.container{
+    width: 75%;
+    margin: 0 auto;
+}
+.title{
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+.title p:first-of-type{
+    font-size: 0.85rem;
+    color: #e62b4a;
+    font-weight: 300;
+}
+.title h1{
+    font-size: 3.15rem;
+    font-weight: 400;
+}
+.title p:last-of-type{
+    font-size: 1rem;
+    color: #888888;
+    font-weight: 700;
+    margin: 20px 0;
+}
+.slick__content{
+    display: flex;
+}
+.slick__content .item{
+    background-color: white;
+    color: gray;
+    width: 215px;
+    height: 215px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* chỉnh theo chiều cột */
+    text-align: center;
+    margin: 10px;
+    text-transform: uppercase;
+    position: relative;
+}
+.slick__content .item p{
+    font-weight: 400;
+}
+.slick__content .item::after{
+    content: "";
+    width: 5px;
+    height: 0;
+    background-color: #e62b4a;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition:  all 1s;
+}
+.slick__content .item:hover::after{
+    height: 100%;
+}
+.slick-dots li button::before{
+    font-size: 1rem;
+    color: white;
+}
+.slick-dots li.slick-active button:before{
+    color: #af2239;
+}
+/* BLOG */
+#blog{
+    padding: 7rem 0;
+}
+#blog .title p:first-of-type{
+    color: gray;
+    font-weight: 400;
+}
+.blog__content{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 30px;
+
+}
+.blog__content .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* làm hình lại bình thường */
+}
+.item1{
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+.item10{
+    grid-column: 3 / 5;
+    grid-row: 3 / 5;
+}
+.blog__content .item{
+    position: relative;
+}
+.blog__overlay{
+    background-color: #e62b4aaf;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 1s;
+}
+.item:hover .blog__overlay{
+    opacity: 1;
+}
+.blog__overlay__icon{
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+.blog__overlay__text{
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    color: white;
+    transition: all  1s;
+    transform: translateY(25px);
+    transform: all 1s;
+}
+.item:hover .blog__overlay__text{
+    transform: translateY(0);
+}
+
+.blog__overlay__icon i{
+    background-color: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition:all 1s;
+    transform: translateY(25px);
+    transform: all 1s;
+}
+.blog__overlay__icon i:hover{
+    background-color: black;
+    color: white;
+    
+}
+.item:hover i {
+    transform: translateY(0);
+}
+/* COUNTER */
+#counter{
+    background-color: black;
+    padding: 7rem 0;
+    color: white;
+}
+.counter__content{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.counter__item p{
+    font-size: 50px;
+}
+.counter__item h3{
+    font-size: 20px;
+}
+.counter__item{
+    padding-right: 60px;
+}
+/* DIGITAL */
+#digital{
+    background-image: url(../img/bussiness_img_1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* cách thức hiển thị hình nền */
+    padding: 7rem 0;
+}
+#digital .title h1{
+    color: white;
+}
+.digital__content video{
+    width: 100%;
+}
+/* CONTACT */
+#contact{
+    padding: 7rem 0;
+}
+.contact__content{
+    display: flex;
+}
+.contact__map{
+    width: 60%;
+}
+.contact__form{
+    width: 40%;
+}
+/* .contact__form .form1{
+    padding: 10px 50px;
+    margin-bottom: 20px;
+}
+.contact__form .form2{
+    padding: 10px 50px;
+    margin-bottom:20px ;
+} */
+.contact__form form{
+    display: flex;
+    flex-direction: column;
+    padding: 0 25px;
+}
+.contact__form form input,
+.contact__form form textarea{
+    padding: 0.6rem;
+    margin-bottom: 2rem;
+}
+.contact__form form input[type= "button"]{
+    margin: 0;
+    background-color: black;
+    /* text-transform: uppercase; */
+    color: white;
+    cursor: pointer;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: black;
+}
+.contact__form form input[type= "button"]:hover{
+    background-color: #e62b4a;
+    color: white;
+}
+
+
+
+
+
+
+
+
+.square{
+    width: 200px;
+    height: 200px;
+    background-color: #e62b4a;
+    position: relative;
+
+    animation-name: demoAnimation ;
+    animation-duration: 2s;
+    
+}
+@keyframes demoAnimation{
+    0%{
+        top: 0;
+        left: 0;
+}
+25%{
+    top: 0;
+    left: 200px;
+}
+50%{
+    top: 200px;
+    left: 200px;
+}
+75%{
+top: 200px;
+left: 0;
+}
+100%{
+    top: 0;
+left: 0;
+}
+}
+
+
+.Backtotop{
+    font-size: 1.2rem;
+    color: white;
+    background-color: #888888;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    border-radius: 5px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+
+    /* *** làm cho bị mất khi kéo lên phía trên trang */
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ***  giúp hiển thị lại cái backtotop khi đi xuống phần sau */
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .cd-top--fade-out { 
+    opacity: .5;
+  }
